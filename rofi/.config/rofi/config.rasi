@@ -1,0 +1,12 @@
+configuration {
+	modes: [ run,drun ];
+	display-drun: "Applications:";
+	drun-display-format: "{icon} {name}";
+	font: "firacode 12";
+	show-icons: true;
+	icon-theme: "adwaita";
+}
+
+@theme "rounded-purple-dark"
+
+/* Insert theme modifications after this */

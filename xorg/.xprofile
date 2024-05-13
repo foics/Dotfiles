@@ -1,0 +1,15 @@
+# XDG Paths
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_CACHE_HOME=$HOME/.cache
+export XDG_DATA_HOME=$HOME/.local/share
+
+# Common app vars
+export BROWSER="brave"
+export TERMINAL="kitty"
+
+# keyboard mapping
+
+setxkbmap -option caps:escape # makes caps escape
+
+# default sound device config
+pactl load-module module-switch-on-connect
