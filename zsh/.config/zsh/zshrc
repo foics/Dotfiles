@@ -143,7 +143,7 @@ zstyle ':vcs_info:*' enable git svn
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' unstagedstr '%F{red}!%f'
 zstyle ':vcs_info:*' stagedstr '%F{green}+%f'
-zstyle ':vcs_info:*' formats " %F{cyan}(%f%u%c%F{blue}%f %F{magenta}%b%f%F{cyan})%f"
+zstyle ':vcs_info:*' formats " %F{207}(%f%u%c%F{044}%f %F{198}%b%f%F{207})%f"
 precmd() {
     vcs_info
     echo -ne '\e[5 q' # Use beam shape cursor for each new prompt.
