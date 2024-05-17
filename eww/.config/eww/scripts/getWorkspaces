@@ -1,0 +1,50 @@
+#!/bin/bash
+
+spc=1
+
+workspaces() {
+  ws=($(bspc query -D --names))
+
+  return_val="(box :class \"workspaces\" :orientation \"h\" :spacing $spc :space-evenly \"false\""
+
+  # init counter
+  i=0
+
+  for w in "${ws[@]}"; do
+    foc=
+    occ=
+    unocc=
+
+    # increment counter
+    (( i++ ))
+
+    # the 3 commands below check for and list the desktops that fit the conditions
+    # then its piped into grep which saves the whole word (-w) into the $w var
+    # check if focused
+    [ "$(bspc query -D -d focused --names | grep -w "$w")" ] && foc="focused"
+
+    # check if occupied
+    [ "$(bspc query -D -d .occupied --names | grep -w "$w")" ] && occ="occupied"
+
+    # check if bspc is not occupied
+    [ "$(bspc query -D -d .\!occupied --names | grep -w "$w")" ] && unocc="unoccupied"
+
+    if [ -z "$foc" ] && [ -z "$occ" ] [ -z "$unocc" ]; then continue; fi
+
+#   ic[i]=""
+    ic[i]="$w"
+#   if [ -n "${foc}" ]; then
+#     ic[i]=""
+#   fi
+
+    return_val+=" (button :onclick \"bspc desktop -f ^${i}\" :class \"${foc} ${occ} ${unocc}\" \"${ic[i]}\")"
+  done
+
+  return_val+=")"
+  echo "$return_val"
+}
+
+workspaces
+bspc subscribe desktop node_transfer | while read -r _ ; do
+  workspaces
+done

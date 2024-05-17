@@ -1,0 +1,126 @@
+(include "./bar/widgets/_calendar.yuck")
+(include "./bar/widgets/_powermenu.yuck")
+
+(defwidget workspaces []
+  (literal :content workspace)
+)
+(deflisten workspace "scripts/getWorkspaces")
+
+(defwidget network []
+    (box :orientation "h"
+         :space-evenly "false"
+         (button :class "network ${network_class}"
+                :tooltip "${network_name} (Press to open nmtui)"
+                :onclick "scripts/exec st -c network -e lessborder nmtui"
+                network_icon)
+    )
+)
+
+(defwidget volume []
+    (box :orientation "h"
+         :space-evenly "false"
+         (button :class "volume ${volume_class}"
+                 :onclick "scripts/exec pavucontrol"
+                 volume_icon)
+    )
+)
+
+(defwidget left []
+  (box :orientation "h"
+       :space-evenly "false"
+       :halign "start"
+       :class "left"
+    (workspaces)
+  )
+)
+
+(defwidget wintitle []
+  (label :text xtitle :class "wintitle")
+)
+(defpoll xtitle :interval "1s" "scripts/getWinTitle")
+
+(defwidget center []
+  (box :class "center-widgets"
+       :space-evenly "false"
+       :halign "center"
+       :orientation "h"
+    (wintitle)
+  )
+)
+
+(defwidget sep []
+  (label :class "sep" :text "")
+)
+
+(defwidget dropdown [onclick ?class ?tooltip]
+  (button :tooltip tooltip :class class :onclick onclick "")
+)
+
+(defwidget datebox []
+  (box :orientation "h"
+       :class "date-box"
+       :space-evenly "false"
+    (label :text dateval :class "content")
+    (sep)
+    (dropdown
+      :onclick "eww open --toggle calendar"
+      :class "date-dropdown"
+      :tooltip "Toggle calendar")
+  )
+)
+(defpoll dateval :interval "1s" "scripts/getDate")
+
+(defwidget musicbox[]
+  (box :orientation "h"
+       :space-evenly "false"
+       :class "musicbox"
+    song_art
+    (box :class "art" :path art :style "background-image: url('${art}')")
+    (label :class "title" :text song_title :tooltip full_song_title)
+  )
+)
+
+(defwidget powermenu []
+  (box :orientation "h"
+       :space-evenly "false"
+       :class "powermenu-box"
+    (button :class "dispatcher"
+            :tooltip "Toggle Power Menu"
+            :onclick "eww open --toggle powermenu"
+            "⏻")
+  )
+)
+
+(defwidget right []
+  (box :class "right-modules"
+       :space-evenly "false"
+       :halign "end"
+       :orientation "h"
+    (network)
+    (volume)
+    (musicbox)
+    (datebox)
+    (powermenu)
+  )
+)
+
+(defwidget bar []
+  (box :class "bar"
+       :orientation "h"
+    (left)
+    (center)
+    (right)
+  )
+)
+
+(defwindow bar
+   :geometry (geometry :x "0px"
+                       :y "14px"
+                       :width "98%"
+                       :height "30px"
+                       :anchor "top center")
+   :stacking "fg"
+   :reserve (struts :distance "4px" :side "top")
+   :windowtype "dock"
+   :wm-ignore false
+ (bar))
