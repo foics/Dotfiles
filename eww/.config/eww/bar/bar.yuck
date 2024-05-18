@@ -114,13 +114,13 @@
 )
 
 (defwindow bar
+   :windowtype "desktop"
+   :stacking "bg"
    :geometry (geometry :x "0px"
                        :y "14px"
                        :width "98%"
                        :height "30px"
                        :anchor "top center")
-   :stacking "fg"
-   :reserve (struts :distance "4px" :side "top")
-   :windowtype "dock"
+   :reserve (struts :distance "70px" :side "top")
    :wm-ignore false
  (bar))
