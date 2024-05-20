@@ -6,6 +6,20 @@
 )
 (deflisten workspace "scripts/getWorkspaces")
 
+(defwidget left []
+  (box :orientation "h"
+       :space-evenly "false"
+       :halign "start"
+       :class "left"
+    (workspaces)
+  )
+)
+
+(defwidget wintitle []
+  (label :text xtitle :class "wintitle")
+)
+(defpoll xtitle :interval "1s" "scripts/getWinTitle")
+
 (defwidget network []
     (box :orientation "h"
          :space-evenly "false"
@@ -24,20 +38,6 @@
                  volume_icon)
     )
 )
-
-(defwidget left []
-  (box :orientation "h"
-       :space-evenly "false"
-       :halign "start"
-       :class "left"
-    (workspaces)
-  )
-)
-
-(defwidget wintitle []
-  (label :text xtitle :class "wintitle")
-)
-(defpoll xtitle :interval "1s" "scripts/getWinTitle")
 
 (defwidget center []
   (box :class "center-widgets"
@@ -117,10 +117,10 @@
    :windowtype "desktop"
    :stacking "bg"
    :geometry (geometry :x "0px"
-                       :y "14px"
+                       :y "5px"
                        :width "98%"
-                       :height "30px"
+                       :height "20px"
                        :anchor "top center")
-   :reserve (struts :distance "70px" :side "top")
+   :reserve (struts :distance "40px" :side "top")
    :wm-ignore false
  (bar))
