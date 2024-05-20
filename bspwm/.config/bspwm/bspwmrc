@@ -16,3 +16,4 @@ bspc config gapless_monocle      true
 picom --config $HOME/.config/picom/picom.conf &
 feh --bg-fill $HOME/Pictures/art/foxes/fox-under-stars.jpg
 dunst &
+polybar &
