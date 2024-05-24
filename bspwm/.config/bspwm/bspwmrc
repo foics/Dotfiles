@@ -12,6 +12,9 @@ bspc config split_ratio          0.5
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
+bspc rule -a Blueberry.py state=floating
+bspc rule -a Nm-connection-editor state=floating
+
 # AutoStart applications
 picom --config $HOME/.config/picom/picom.conf &
 feh --bg-fill $HOME/Pictures/art/foxes/fox-under-stars.jpg
