@@ -24,6 +24,9 @@ ctrl + shift + l
 
 ### shortcuts
 
+# toggle fullscreen
+super + shift + F11
+    wmctrl -r ':ACTIVE:' -b toggle,fullscreen
 # vol up
 XF86AudioRaiseVolume
     pamixer -i 5
