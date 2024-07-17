@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# the commands will not work without having the commands below inside sudoers
+# %wheel ALL=NOPASSWD: SETENV:/usr/bin/wg
+# %wheel ALL=NOPASSWD: SETENV:/usr/bin/wg-quick
+# %wheel ALL=NOPASSWD: SETENV:/usr/bin/wg-vpn
+
+
+# check if there is any output from wg cmd
+if [ $(sudo wg | wc -c) -eq 0 ]
+then
+    echo "󰌿"
+else
+    echo "%{F#71EBFB}󰌾"
+fi

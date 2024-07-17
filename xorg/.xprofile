@@ -13,3 +13,6 @@ setxkbmap -option caps:escape # makes caps escape
 
 # default sound device config
 pactl load-module module-switch-on-connect
+
+# prevent screen going black after time
+xset -dpms

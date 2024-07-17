@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# this file should be inside of /usr/bin for security reasons
+
+# check for output from wg cmd
+if [ $(sudo wg | wc -c) -eq 0 ]
+then
+    systemctl start wg-quick@wg0
+else
+    systemctl stop wg-quick@wg0
+fi
