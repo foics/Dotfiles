@@ -25,6 +25,31 @@ Plug("catppuccin/nvim", { ["as"] = "catppuccin" })
 -- indent guiding lines
 Plug("lukas-reineke/indent-blankline.nvim")
 
+-- embedded console
+Plug("akinsho/toggleterm.nvim")
+
+-- shows trailing spaces
+Plug("ntpeters/vim-better-whitespace")
+
+-- alignment operator
+Plug("tommcdo/vim-lion")
+
+-- easy way to view diffs
+Plug("sindrets/diffview.nvim")
+
+-- git wrapper
+Plug("tpope/vim-fugitive")
+-- edit ()[] and such around text
+Plug("tpope/vim-surround")
+-- comment operator
+Plug("tpope/vim-commentary")
+
+-- automatically sets cursor to farthest indent on tab
+Plug("VidocqH/auto-indent.nvim")
+
+-- debug client for nvim
+Plug("mfussenegger/nvim-dap")
+
 -- LSP setup
 Plug("williamboman/mason.nvim")
 Plug("williamboman/mason-lspconfig.nvim")

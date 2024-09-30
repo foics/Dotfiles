@@ -16,3 +16,4 @@ pactl load-module module-switch-on-connect
 
 # prevent screen going black after time
 xset -dpms
+xset s 0 0

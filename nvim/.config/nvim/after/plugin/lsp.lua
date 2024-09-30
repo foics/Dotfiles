@@ -25,19 +25,11 @@ cmp.setup({
     }
 })
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, {
-    signs = {
-      severity_limit = "Error",
-    },
-    virtual_text = {
-      severity_limit = "Error",
-    },
-    underline = {
-        severity_limit = "Error",
-    },
-  }
-)
+vim.diagnostic.config({
+    virtual_text = {severity = {min = vim.diagnostic.severity.ERROR}},
+    signs = {severity = {min = vim.diagnostic.severity.ERROR}},
+    underline = {severity = {min = vim.diagnostic.severity.ERROR}},
+})
 
 lsp_zero.on_attach(function(client, bufnr)
     lsp_zero.default_keymaps({ buffer = bufnr })

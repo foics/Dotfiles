@@ -143,14 +143,26 @@ zstyle ':vcs_info:*' enable git svn
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' unstagedstr '%F{red}!%f'
 zstyle ':vcs_info:*' stagedstr '%F{green}+%f'
-zstyle ':vcs_info:*' formats " %F{207}(%f%u%c%F{044}%f %F{198}%b%f%F{207})%f"
+zstyle ':vcs_info:*' formats "%F{207}─(%f%u%c%F{044}%f %F{198}%b%f%F{207})%f"
 precmd() {
     vcs_info
+
     echo -ne '\e[5 q' # Use beam shape cursor for each new prompt.
+
+    # print a new line before prompt unless its the first
+    if [ -z "$NEW_LINE_BEFORE_PROMPT" ]; then
+        NEW_LINE_BEFORE_PROMPT=1
+    elif [ "$NEW_LINE_BEFORE_PROMPT" -eq 1 ]; then
+        echo ""
+    fi
 }
 
 # Prompt style
-export PS1='%B%F{207}[%f%F{198}%n%f%F{134}@%f%F{198}%m%f%F{207}]%f %F{044}%~%f${vcs_info_msg_0_} %F{134}❯%f%b '
+export PS1='%B%F{207}┌──[%f%F{198}%n%f%F{134}@%f%F{198}%m%f%F{207}]─(%f%F{044}%~%f%F{207})%f${vcs_info_msg_0_}
+%F{207}└─❯%f%b '
+
+# single line
+# export PS1='%B%F{207}[%f%F{198}%n%f%F{134}@%f%F{198}%m%f%F{207}]%f %F{044}%~%f${vcs_info_msg_0_} %F{134}❯%f%b '
 
 # bat (better cat)
 export BAT_THEME=catppuccin_mocha
