@@ -21,4 +21,5 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
-vim.cmd("autocmd BufEnter * set formatoptions-=cro")
+vim.cmd("autocmd BufEnter * set formatoptions-=cro") -- removes auto comment next line
+vim.cmd("autocmd BufRead,BufNewFile *.vert,*.frag,*.comp,*.rchit,*.rmiss,*.rahit set filetype=glsl") -- recognize .vert/.frag files as GLSL

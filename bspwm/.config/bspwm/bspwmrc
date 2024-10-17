@@ -26,6 +26,6 @@ bspc rule -a Nm-connection-editor state=floating
 
 # AutoStart applications
 picom --config $HOME/.config/picom/picom.conf &
-feh --bg-fill $HOME/Pictures/art/foxes/fox-under-stars.jpg
+feh --bg-fill $HOME/Pictures/foxforest.jpg
 dunst &
 $HOME/.config/polybar/launch-polybar.sh

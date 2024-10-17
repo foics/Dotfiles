@@ -1,5 +1,10 @@
 vim.g.mapleader = " "
 
+-- copy to clipboard
+vim.keymap.set("v", "<C-A-y>", '"+y')
+-- cut
+vim.keymap.set("v", "<C-A-d>", '"+d')
+
 -- keep cursor centered while using search and jumps
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
@@ -13,3 +18,5 @@ vim.keymap.set("n", "<C-k>", "<C-w>k")
 vim.keymap.set("n", "<C-l>", "<C-w>l")
 
 vim.keymap.set("n", "<C-b>", ":NvimTreeToggle<CR>")
+
+vim.keymap.set("n", "<C-A-t>", ":ToggleTerm<CR>")
