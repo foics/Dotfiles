@@ -47,9 +47,6 @@ Plug("tpope/vim-commentary")
 -- automatically sets cursor to farthest indent on tab
 Plug("VidocqH/auto-indent.nvim")
 
--- debug client for nvim
-Plug("mfussenegger/nvim-dap")
-
 -- LSP setup
 Plug("williamboman/mason.nvim")
 Plug("williamboman/mason-lspconfig.nvim")
@@ -58,5 +55,12 @@ Plug("hrsh7th/nvim-cmp")
 Plug("hrsh7th/cmp-nvim-lsp")
 Plug("L3MON4D3/LuaSnip")
 Plug("VonHeikemen/lsp-zero.nvim", { ["tag"] = "v3.x" })
+
+-- debug client for nvim with ui
+Plug("mfussenegger/nvim-dap")
+Plug("nvim-neotest/nvim-nio")
+Plug("rcarriga/nvim-dap-ui")
+Plug("theHamsta/nvim-dap-virtual-text")
+Plug("jay-babu/mason-nvim-dap.nvim")
 
 vim.call("plug#end")

@@ -49,7 +49,7 @@ require('mason-lspconfig').setup({
     --- replace `example_server` with the name of a language server
     -- example_server = function()
       --- in this function you can setup
-      --- the language server however you want. 
+      --- the language server however you want.
       --- in this example we just use lspconfig
 
       -- require('lspconfig').example_server.setup({
@@ -63,3 +63,11 @@ require('mason-lspconfig').setup({
 })
 
 lsp_zero.setup()
+
+-- for dap sense it needs to be loaded after mason
+require("mason-nvim-dap").setup({
+    handlers = {}
+})
+
+require("dapui").setup()
+require("nvim-dap-virtual-text").setup()
