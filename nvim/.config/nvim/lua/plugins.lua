@@ -63,4 +63,7 @@ Plug("rcarriga/nvim-dap-ui")
 Plug("theHamsta/nvim-dap-virtual-text")
 Plug("jay-babu/mason-nvim-dap.nvim")
 
+-- pretty statusline
+Plug("nvim-lualine/lualine.nvim")
+
 vim.call("plug#end")

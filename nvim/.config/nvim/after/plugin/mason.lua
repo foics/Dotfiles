@@ -71,3 +71,11 @@ require("mason-nvim-dap").setup({
 
 require("dapui").setup()
 require("nvim-dap-virtual-text").setup()
+
+-- dap conf
+
+vim.api.nvim_set_hl(0, "Breakpoint", { fg = "#993939" })
+vim.api.nvim_set_hl(0, "BreakpointRejected", { fg = "#fff176" })
+
+vim.fn.sign_define("DapBreakpoint", {text='', texthl="Breakpoint", linehl='', numhl=''})
+vim.fn.sign_define("DapBreakpointRejected", {text='', texthl="BreakpointRejected", linehl='', numhl=''})
