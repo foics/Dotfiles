@@ -56,7 +56,7 @@ Plug("hrsh7th/cmp-nvim-lsp")
 Plug("L3MON4D3/LuaSnip")
 Plug("VonHeikemen/lsp-zero.nvim", { ["tag"] = "v3.x" })
 
--- debug client for nvim with ui
+-- debug client for nvim
 Plug("mfussenegger/nvim-dap")
 Plug("nvim-neotest/nvim-nio")
 Plug("rcarriga/nvim-dap-ui")
