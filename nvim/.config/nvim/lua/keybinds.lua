@@ -21,10 +21,15 @@ vim.keymap.set("n", "<C-b>", ":NvimTreeToggle<CR>")
 
 vim.keymap.set("n", "<C-A-t>", ":ToggleTerm<CR>")
 
+vim.keymap.set("n", "<F5>", ":!./main.exe<CR>")
+
 -- dap
 vim.keymap.set("n", "<F2>", ":lua require('dapui').toggle()<CR>")
 vim.keymap.set("n", "<F4>", ":lua require('dap').toggle_breakpoint()<CR>")
-vim.keymap.set("n", "<F5>", ":lua require('dap').continue()<CR>")
+vim.keymap.set("n", "<F6>", ":lua require('dap').continue()<CR>")
 vim.keymap.set("n", "<F10>", ":lua require('dap').step_over()<CR>")
 vim.keymap.set("n", "<F11>", ":lua require('dap').step_into()<CR>")
 vim.keymap.set("n", "<F12>", ":lua require('dap').step_out()<CR>")
+
+-- quick build setup for Cmake
+vim.keymap.set("n", "<F7>", ":!cmake -B build && make -C build<CR>")
