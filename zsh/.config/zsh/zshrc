@@ -170,7 +170,7 @@ alias cat="bat"
 
 # eza (better ls)
 alias ls="eza --color=always --group-directories-first --icons=always"
-alias ld="eza --color=always --group-directories-first --icons=always --tree --level 3"
+alias lst="eza --color=always --group-directories-first --icons=always --tree --level 3"
 
 # zoxide (better cd)
 eval "$(zoxide init zsh)"
