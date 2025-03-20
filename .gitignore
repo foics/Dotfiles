@@ -1,2 +1,4 @@
 zsh/.config/zsh/.histfile
 zsh/.config/zsh/.zcompdump
+ranger/.config/ranger/colorschemes/__pycache__/
+ranger/.config/ranger/plugins/__pycache__/
