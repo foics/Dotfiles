@@ -21,7 +21,7 @@ vim.keymap.set("n", "<C-b>", ":NvimTreeToggle<CR>")
 
 vim.keymap.set("n", "<C-A-t>", ":ToggleTerm<CR>")
 
-vim.keymap.set("n", "<F5>", ":!./bin/main.exe<CR>")
+vim.keymap.set("n", "<F5>", ":!./bin/main<CR>")
 
 -- dap
 vim.keymap.set("n", "<F2>", ":lua require('dapui').toggle()<CR>")

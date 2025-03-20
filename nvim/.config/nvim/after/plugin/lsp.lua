@@ -61,7 +61,8 @@ require('mason-lspconfig').setup({
     -- end,
 
     require("lspconfig").clangd.setup{
-        init_options = { compilationDatabasePath = "./build" }
+        init_options = { compilationDatabasePath = "./build" },
+        cmd = { "clangd", "--header-insertion=never", "--function-arg-placeholders=false"}
     }
   },
 })
