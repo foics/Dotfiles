@@ -45,6 +45,8 @@ source $ZDOTDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Vars
 export EDITOR="nvim"
+export CC="clang"
+export CXX="clang++"
 
 # keybinds
 # vi mode
