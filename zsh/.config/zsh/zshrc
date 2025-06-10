@@ -178,6 +178,9 @@ alias lst="eza --color=always --group-directories-first --icons=always --tree --
 eval "$(zoxide init zsh)"
 alias cd="z"
 
+# kitty ssh fix
+alias ssh="TERM=xterm-256color ssh"
+
 # normal keybinds
 bindkey "^[[Z" autosuggest-accept # shift + tab
 

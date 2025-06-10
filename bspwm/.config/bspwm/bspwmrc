@@ -26,6 +26,16 @@ bspc rule -a Nm-connection-editor state=floating
 
 # AutoStart applications
 picom --config $HOME/.config/picom/picom.conf &
-feh --bg-fill $HOME/Pictures/art/foxes/fox-under-stars.jpg
+feh --bg-fill $HOME/Pictures/foxroom.png
 dunst &
-$HOME/.config/polybar/launch-polybar.sh
+$HOME/.config/polybar/launch-polybar.sh &
+
+if [[ $(ps -e | grep "Discord" | wc -c) -eq 0 ]]; then
+    discord --start-minimized &
+fi
+if [[ $(ps -e | grep "steam" | wc -c) -eq 0 ]]; then
+    steam -nochatui -nofriendsui -silent &
+fi
+if [[ $(ps -e | grep "openrgb" | wc -c) -eq 0 ]]; then
+    openrgb --startminimized &
+fi

@@ -7,7 +7,7 @@ then
 # checks if theres a device connected if so returns true
 elif [ $(echo info | bluetoothctl | grep "DeviceSet" | wc -c) -eq 0 ]
 then
-    echo "%{F#71EBFB}󰂯"
-else
     echo "󰂯"
+else
+    echo "%{F#71EBFB}󰂯"
 fi
