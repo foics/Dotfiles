@@ -5,10 +5,10 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 # if connected to multiple monitors make dual screen
 if [[ $(xrandr -q | grep " connected" | cut -d" " -f2 | wc -c) -gt 10 ]]; then
     # this stuff is unique for every computer
-    xrandr --output eDP-1-1 --primary --output HDMI-0 --mode 1920x1080 --right-of eDP-1-1
-    bspc monitor eDP-1-1 -d I II III IV V
-    bspc monitor HDMI-0 -d VI VII VIII IX X
-    bspc wm -O eDP-1-1 HDMI-0
+    xrandr --output eDP-1-1 --primary --output HDMI-0 --mode 1920x1080 --rate 144 --right-of eDP-1-1
+    bspc monitor eDP-1-1 -d VI VII VIII IX X
+    bspc monitor HDMI-0 -d I II III IV V
+    bspc wm -O HDMI-0 eDP-1-1
 else
     bspc monitor -d I II III IV V
 fi
