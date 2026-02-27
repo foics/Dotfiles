@@ -60,10 +60,10 @@ require('mason-lspconfig').setup({
       -- })
     -- end,
 
-    require("lspconfig").clangd.setup{
+    vim.lsp.config('clangd', {
         init_options = { compilationDatabasePath = "./build" },
         cmd = { "clangd", "--header-insertion=never", "--function-arg-placeholders=false"}
-    }
+    })
   },
 })
 
